@@ -1,6 +1,6 @@
 # Flight Reservation MicroService (back-End)
 
-This project is an Flight Reservation platform consisting of three microservices: User, Flight, and Reservation. The platform is designed to manage users, Flights, and Reservations using gRPC, GraphQL, and RESTful APIs.
+As a school project this is an Flight Reservation platform consisting of three microservices: User, Flight, and Reservation. The platform is designed to manage users, Flights, and Reservations using gRPC, GraphQL, and RESTful APIs.
 
 ## Table of Contents
 
