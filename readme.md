@@ -12,7 +12,6 @@ This project is an Flight Reservation platform consisting of three microservices
 - ### Usage
 - ### Contributing
 - ### License
-- ### Contact
 
 ## Overview
 
@@ -72,8 +71,4 @@ Contributions are welcome! Please read the contributing guidelines before gettin
 
 This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 
-## Contact
 
-If you have any questions or suggestions, feel free to reach out to the project maintainer or open an issue on GitHub.
-
-# Happy coding!
