@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 24, 2023 at 12:40 AM
+-- Generation Time: May 24, 2023 at 01:41 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.1.0
 
@@ -63,16 +63,15 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `flight_id` (`flight_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservations`
 --
 
 INSERT INTO `reservations` (`id`, `user_id`, `flight_id`, `price`) VALUES
-(1, 11, 4, 5),
-(2, 12, 4, 2500),
-(3, 12, 3, 2500);
+(5, 14, 16, 400),
+(6, 14, 4, 2400);
 
 -- --------------------------------------------------------
 
@@ -93,15 +92,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `cin` (`cin`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `email`, `cin`, `password`, `genre`, `role`) VALUES
-(12, 'Med', 'Mtir', 'Med@gmail.com', 14000917, 'med', 'male', 2),
-(13, 'warda', 'Mtir', 'warda@ala.com', 12345678, '$2b$10$xOMN3FqPcfzr5uxohiXxNud5.CzLL1gUoOPG97XFlVJg/puthtl/a', 'male', 1);
+(13, 'warda', 'Mtir', 'warda@ala.com', 12345678, '$2b$10$xOMN3FqPcfzr5uxohiXxNud5.CzLL1gUoOPG97XFlVJg/puthtl/a', 'male', 1),
+(14, 'Test', 'Test', 'Test@warda.com', 10000001, '$2b$10$WBsXVcfTXjaUxZGJbhfZ3ekeHzBeKfUDY0wZcNKnMCfh8GIASEN9i', 'male', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
