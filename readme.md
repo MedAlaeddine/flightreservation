@@ -7,7 +7,6 @@ As a school project this is an Flight Reservation platform consisting of three m
 - ### Overview
 - ### Technologies
 - ### Getting Started
-- ### Prerequisites
 - ### Installation
 - ### Usage
 - ### Contributing
