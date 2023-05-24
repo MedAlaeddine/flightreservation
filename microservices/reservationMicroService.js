@@ -43,16 +43,16 @@ const reservationService = {
       callback(null, { reservation: reservation });
     });
   },
-  getReservations: (call, callback) => {
+  getReservation: (call, callback) => {
     const { user_id } = call.request;
     const query = "SELECT * FROM reservations WHERE user_id = ?";
     connection.query(query, [user_id], (err, results) => {
       if (err) return callback(err);
-      const reservations = results.map((reservations) => ({
-        id: reservations.id,
+      const reservations = results.map((reservation) => ({
+        id: reservation.id,
         user_id: user_id,
-        flight_id: reservations.flight_id,
-        price: reservations.price,
+        flight_id: reservation.flight_id,
+        price: reservation.price,
       }));
       callback(null, { reservations: reservations });
     });
