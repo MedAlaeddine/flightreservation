@@ -54,7 +54,7 @@ const reservationService = {
         flight_id: reservation.flight_id,
         price: reservation.price,
       }));
-      callback(null, { reservations: reservations });
+      callback(null, {reservations});
     });
   },
 };

@@ -110,7 +110,7 @@ app.get("/api/reservation/:user_id", (req, res) => {
   const user_id = req.params.user_id;
   clientReservation.getReservation({ user_id: user_id }, (err, response) => {
     if (err) return res.status(500).send(err);
-    res.json(response.reservation);
+    res.json(response.reservations);
   });
 });
 
