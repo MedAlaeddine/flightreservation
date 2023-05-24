@@ -1,0 +1,73 @@
+syntax = "proto3";
+package flight;
+
+message Flight{
+int32 id=1;
+string airline=2;
+string origine=3;
+string destination=4;
+double price=5;
+}
+
+
+
+message GetFlightRequest {
+  int32 id = 1;
+}
+
+message GetFlightResponse {
+  Flight flight = 1;
+}
+
+message GetAllFlightsRequest {
+  string query = 1;
+}
+
+message GetAllFlightsResponse {
+  repeated Flight flights = 1;
+}
+
+message SearchFlightRequest {
+  string origine = 1;
+  string destination = 2;
+}
+
+message SearchFlightResponse {
+  repeated Flight flights = 1;
+}
+
+message DeleteFlightRequest {
+  int32 id = 1;
+}
+
+message DeleteFlightResponse {
+  string res = 1;
+}
+
+message UpdateFlightRequest {
+  Flight flight = 1;
+}
+
+message UpdateFlightResponse {
+  Flight flight = 1;
+}
+
+message CreateFlightRequest {
+  string airline = 1;
+  string origine = 2;
+  string destination = 3;
+  double price = 4;
+}
+
+message CreateFlightResponse {
+  Flight flight = 1;
+}
+
+service FlightService {
+  rpc CreateFlight(CreateFlightRequest) returns (CreateFlightResponse);
+  rpc GetFlight(GetFlightRequest) returns (GetFlightResponse);
+  rpc GetAllFlights(GetAllFlightsRequest) returns (GetAllFlightsResponse);
+  rpc SearchFlight(SearchFlightRequest) returns (SearchFlightResponse);
+  rpc DeleteFlight(DeleteFlightRequest) returns (DeleteFlightResponse);
+  rpc UpdateFlight(UpdateFlightRequest) returns (UpdateFlightResponse);
+}

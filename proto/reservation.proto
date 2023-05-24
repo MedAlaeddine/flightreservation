@@ -1,0 +1,43 @@
+syntax ="proto3";
+package reservation;
+
+
+
+message Reservation {
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 flight_id = 3;
+  double price = 4;
+}
+
+message GetReservationRequest {
+  int32 user_id = 1;
+}
+
+message GetReservationResponse {
+  repeated Reservation reservations = 1;
+}
+
+message DeleteReservationRequest {
+  int32 id = 1;
+}
+
+message DeleteReservationResponse {
+  string res = 1;
+}
+
+message AddReservationRequest {
+  int32 user_id = 2;
+  int32 flight_id = 3;
+  double price = 4;
+}
+
+message AddReservationResponse {
+  Reservation reservation = 1;
+}
+
+service ReservationService {
+  rpc AddReservation(AddReservationRequest) returns (AddReservationResponse);
+  rpc GetReservation(GetReservationRequest) returns (GetReservationResponse);
+  rpc DeleteReservation(DeleteReservationRequest) returns (DeleteReservationResponse);
+}
