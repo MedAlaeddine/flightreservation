@@ -1,17 +1,20 @@
-# Use an official Node runtime as a parent image
-FROM node:14
+# Use an official Node.js runtime as a base image
+FROM node:21-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
-# Install any needed packages
+# Install any needed packages specified in package.json
 RUN npm install
 
-# Bundle app source
+# Bundle the source code inside the Docker image
 COPY . .
 
-# Define the command to run your app
-CMD [ "node", "app.js" ]
+# Make port 50052 available outside this container
+EXPOSE 50052
+
+# Run flightMicroService.js when the container launches
+CMD ["node", "microservices/flightMicroService.js"]
