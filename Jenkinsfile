@@ -1,5 +1,11 @@
 pipeline {
 agent any
+environment {
+        FLIGHT_MICROSERVICE_IMAGE = "medalaeddine/flightmicroservice"
+        RESERVATION_MICROSERVICE_IMAGE = "medalaeddine/reservationmicroservice"
+        GATEWAY_IMAGE = "medalaeddine/gateway"
+        DOCKER_REGISTRY_URL = "docker.io/medalaeddine"
+    }
 triggers {
 pollSCM('*/5 * * * *') // Vérifier toutes les 5 minutes
 }
