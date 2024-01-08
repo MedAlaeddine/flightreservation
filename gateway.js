@@ -118,7 +118,7 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "hello World aka warda ;)  " });
 });
 
-const port = 3002;
+const port = 3001;
 app.listen(port, () => {
   console.log(`API Gateway running on port ${port}`);
 });

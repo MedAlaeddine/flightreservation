@@ -13,7 +13,7 @@ RUN npm install
 # Bundle the source code inside the Docker image
 COPY . .
 
-EXPOSE 3002
+EXPOSE 3001
 
 # Run flightMicroService.js when the container launches
 CMD ["node", "gateway.js"]
