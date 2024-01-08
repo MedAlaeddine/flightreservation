@@ -5,6 +5,7 @@ environment {
         RESERVATION_MICROSERVICE_IMAGE = "medalaeddine/reservationmicroservice"
         GATEWAY_IMAGE = "medalaeddine/gateway"
         DOCKER_REGISTRY_URL = "docker.io/medalaeddine"
+        KUBECONFIG_CREDENTIALS = 'myKubeConfig'
     }
 triggers {
 pollSCM('*/5 * * * *') // Vérifier toutes les 5 minutes
@@ -51,11 +52,16 @@ sh 'docker build -f gatewayDockerfile -t medalaeddine/gateway .'
 //}
 stage('Deploy') {
     steps {
+        script {
+        withCredentials([file(credentialsId: env.KUBECONFIG_CREDENTIALS, variable: 'KUBECONFIG')]) {
+                       
         echo "Deploying to Kubernetes"
         sh 'kubectl apply -f microservices/flight-deploy.yaml'
         sh 'kubectl apply -f microservices/flight-service.yaml'
         sh 'kubectl apply -f microservices/flight-svc-loadbalancer.yaml'
         // Include additional kubectl commands as necessary
+        }
+        }
     }
 }
 
