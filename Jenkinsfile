@@ -50,9 +50,12 @@ sh 'docker build -f gatewayDockerfile -t medalaeddine/gateway .'
 //}
 //}
 stage('Deploy') {
-steps {
-echo "Déploiement du projet"
-// Ajoutez les commandes de déploiement ici
+    steps {
+        echo "Deploying to Kubernetes"
+        sh 'kubectl apply -f /home/ala/flightreservation/microservices/flight-deploy.yaml'
+        sh 'kubectl apply -f /home/ala/flightreservation/microservices/flight-service.yaml'
+        // Include additional kubectl commands as necessary
+    }
 }
 
 }

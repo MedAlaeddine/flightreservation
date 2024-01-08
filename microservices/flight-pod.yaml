@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flights
+  labels:
+    app: flights
+spec:
+  containers:
+    - name: flights
+      image: medalaeddine/flightmicroservice
+      ports:
+        - containerPort: 5001
+          name: http

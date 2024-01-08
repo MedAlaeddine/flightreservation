@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flights
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: flights
+  template:
+    metadata:
+      labels:
+        app: flights
+    spec:
+      containers:
+      - name: flights
+        image: medalaeddine/flightmicroservice
+        ports:
+        - containerPort: 50052
