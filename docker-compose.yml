@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: miniaos
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - /home/ala/flightreservation:/docker-entrypoint-initdb.d
+
+  flightmicroservice:
+    image: medalaeddine/flightmicroservice
+    depends_on:
+      - mysql
+    ports:
+      - "50052:50052"
+
+  reservationmicroservice:
+    image: medalaeddine/reservationmicroservice
+    depends_on:
+      - mysql
+    ports:
+      - "50054:50054"
+
+  gateway:
+    image: medalaeddine/gateway
+    depends_on:
+      - mysql
+    ports:
+      - "3001:3001"
+
