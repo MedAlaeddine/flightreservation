@@ -18,8 +18,9 @@ checkout scm
 }
 stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'medalaeddine', passwordVariable: 'tunisia1998*')]) {
-                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                withCredentials([usernamePassword(credentialsId: 'bde49bf0-d3d1-40f3-ace4-9d3e13f0ba3d', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+}
                 }
             }
         }
