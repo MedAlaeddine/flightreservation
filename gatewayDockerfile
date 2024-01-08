@@ -13,8 +13,7 @@ RUN npm install
 # Bundle the source code inside the Docker image
 COPY . .
 
-# Make port 50052 available outside this container
-EXPOSE 3001
+EXPOSE 3002
 
 # Run flightMicroService.js when the container launches
 CMD ["node", "gateway.js"]
