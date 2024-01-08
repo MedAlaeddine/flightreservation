@@ -49,10 +49,12 @@ echo "Déploiement du projet"
 
 stage('Push to Registry') {
     steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
-            sh 'docker push ${FLIGHT_MICROSERVICE_IMAGE}'
-            sh 'docker push ${RESERVATION_MICROSERVICE_IMAGE}'
-            sh 'docker push ${GATEWAY_IMAGE}'
+        script {
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                sh "docker push ${FLIGHT_MICROSERVICE_IMAGE}"
+                sh "docker push ${RESERVATION_MICROSERVICE_IMAGE}"
+                sh "docker push ${GATEWAY_IMAGE}"
+            }
         }
     }
 }
