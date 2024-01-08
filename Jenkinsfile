@@ -59,9 +59,6 @@ stage('Deploy') {
     }
 }
 
-}
-
-
 stage('Push to Registry') {
     steps {
         script {
