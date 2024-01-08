@@ -3,9 +3,9 @@ const protoLoader = require("@grpc/proto-loader");
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "mysql",
   user: "root",
-  password: "",
+  password: "root",
   database: "miniaos",
 });
 
