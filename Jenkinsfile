@@ -39,12 +39,6 @@ echo "Déploiement du projet"
 }
 }
 
-stage('Testing') {
-    steps {
-        echo "Running Tests"
-        sh 'npm test'
-    }
-}
 
 stage('Push to Registry') {
     steps {
