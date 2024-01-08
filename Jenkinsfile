@@ -37,6 +37,7 @@ steps {
 echo "Déploiement du projet"
 // Ajoutez les commandes de déploiement ici
 }
+}
 
 stage('Testing') {
     steps {
@@ -52,8 +53,6 @@ stage('Push to Registry') {
         sh 'docker push ${RESERVATION_MICROSERVICE_IMAGE}'
         sh 'docker push ${GATEWAY_IMAGE}'
     }
-}
-
 }
 }
 }
