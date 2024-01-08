@@ -1,5 +1,8 @@
 pipeline {
 agent any
+withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'medalaeddine', passwordVariable: 'tunisia1998*')]) {
+    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+}
 environment {
         FLIGHT_MICROSERVICE_IMAGE = "medalaeddine/flightmicroservice"
         RESERVATION_MICROSERVICE_IMAGE = "medalaeddine/reservationmicroservice"
