@@ -50,7 +50,8 @@ echo "Déploiement du projet"
 stage('Push to Registry') {
     steps {
         script {
-            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                sh "docker login -u $USERNAME -p $PASSWORD"
                 sh "docker push ${FLIGHT_MICROSERVICE_IMAGE}"
                 sh "docker push ${RESERVATION_MICROSERVICE_IMAGE}"
                 sh "docker push ${GATEWAY_IMAGE}"
