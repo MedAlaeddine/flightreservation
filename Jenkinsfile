@@ -20,13 +20,13 @@ stage('Build') {
 steps {
 echo "Building Docker Images"
 echo "Building Reservation Microservice Docker Image"
-sh 'docker build -f microservices/reservationDockerfile t ${RESERVATION_MICROSERVICE_IMAGE} .'
+sh 'docker build -f microservices/reservationDockerfile -t medalaeddine/reservationmicroservice .'
 
 echo "Building Flight Microservice Docker Image"
-sh 'docker build  -t ${FLIGHT_MICROSERVICE_IMAGE} . .'
+sh 'docker build  -t medalaeddine/flightmicroservice .'
 
 echo "Building Gateway Docker Image"
-sh 'docker build -f gatewayDockerfile -t ${GATEWAY_IMAGE} .'
+sh 'docker build -f gatewayDockerfile -t medalaeddine/gateway .'
 
 // Ajoutez les commandes de build ici
 
