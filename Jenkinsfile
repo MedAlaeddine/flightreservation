@@ -16,13 +16,13 @@ echo "Récupération du code source"
 checkout scm
 }
 }
-stage('Docker Login') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-}
-                }
-            }
+//stage('Docker Login') {
+//            steps {
+//                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+//    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+//}
+//               }
+//            }
 stage('Build') {
 steps {
 echo "Building Docker Images"
