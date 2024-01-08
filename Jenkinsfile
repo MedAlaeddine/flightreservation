@@ -23,7 +23,6 @@ stage('Docker Login') {
 }
                 }
             }
-        }
 stage('Build') {
 steps {
 echo "Building Docker Images"
