@@ -39,16 +39,16 @@ sh 'docker build -f gatewayDockerfile -t medalaeddine/gateway .'
 
 }
 }
-stage('Start Services') {
-    steps {
-        sh 'docker-compose up -d'
-    }
-    post {
-    always {
-        sh 'docker-compose down'
-    }
-}
-}
+//stage('Start Services') {
+//    steps {
+//        sh 'docker-compose up -d'
+//    }
+//    post {
+//    always {
+//        sh 'docker-compose down'
+//    }
+//}
+//}
 stage('Deploy') {
 steps {
 echo "Déploiement du projet"
